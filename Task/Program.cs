@@ -12,11 +12,15 @@
 // [“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”]
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
+
+
 void Main()
 {
-    string[] userArray = ReadArray("Enter several Symbols using a spacebar: ");
-    System.Console.WriteLine(ArraySize(userArray, 3));
-    // System.Console.Write("[" + string.Join(" ", FillNewArray(userArray, 3)) + "]");
+    string[] Array = ReadArray("Enter several Symbols using a spacebar: ");
+    int NewArraySize = ArraySize(Array, 3);
+    System.Console.WriteLine(ArraySize(Array, 3));
+    PrintArray(FillUserArray(Array, NewArraySize, 3));
+    
 }
 
 string[] ReadArray(string text)
@@ -39,8 +43,24 @@ int ArraySize(string[] array, int border)
     return size;
 }
 
-// void PrintArrray(int[] arr)
-// {
-//     System.Console.WriteLine(string.Join(" ", arr));
-// }
+string[] FillUserArray(string[] array, int size, int border)
+{
+    string[] userArray = new string[size];
+    for (int i = 0; i < size; i++)
+    {
+        int j =0;
+        if (array[i].Length <= border)
+        {
+            userArray[j]= array[i];
+            j++;
+        }
+    }
+    return userArray;
+}
+
+void PrintArray(string[] arr)
+{
+    System.Console.WriteLine("{" + string.Join(",", arr) + "}");
+}
+
 Main();
