@@ -18,9 +18,7 @@ void Main()
 {
     string[] Array = ReadArray("Enter several Symbols using a spacebar: ");
     int NewArraySize = ArraySize(Array, 3);
-    System.Console.WriteLine(ArraySize(Array, 3));
     PrintArray(FillUserArray(Array, NewArraySize, 3));
-    
 }
 
 string[] ReadArray(string text)
@@ -46,12 +44,12 @@ int ArraySize(string[] array, int border)
 string[] FillUserArray(string[] array, int size, int border)
 {
     string[] userArray = new string[size];
-    for (int i = 0; i < size; i++)
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
     {
-        int j =0;
         if (array[i].Length <= border)
         {
-            userArray[j]= array[i];
+            userArray[j] = array[i];
             j++;
         }
     }
@@ -60,7 +58,7 @@ string[] FillUserArray(string[] array, int size, int border)
 
 void PrintArray(string[] arr)
 {
-    System.Console.WriteLine("{" + string.Join(",", arr) + "}");
+    System.Console.WriteLine("[" + string.Join(", ", arr) + "]");
 }
 
 Main();
